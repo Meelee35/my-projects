@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+		<meta name="generator" content="Hugo 0.84.0" />
+		<title>Minecraft server checker</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+			}
+
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+	</head>
+	<body class="d-flex h-100 text-center text-white bg-dark">
+		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+			<main class="px-3">
+				<h1>Minecraft server checker</h1>
+				<form id="server-lookup-form" autocomplete="off" action="https://api.minetools.eu/ping/" class="mt-5">
+					<div class="mb-3 col-4 offset-4">
+						<label class="form-label">Server domain</label>
+						<input id="ip" name="ip" class="form-control mb-2" type="text" required />
+						<button class="btn btn-primary" type="submit" id="enter">Submit</button>
+					</div>
+				</form>
+				<hr />
+				<div id="spinner" class="spinner-border visually-hidden" style="width: 5rem; height: 5rem" role="status"></div>
+				<dl id="list" class="visually-hidden">
+					<img id="favicon">
+					<dd><strong>Description:</strong> <div id="description"></div></dd>
+					<dd><strong>Version:</strong> <span id="version"></span></dd>
+					<dd><strong>Latency:</strong> <span id="latency"></span></dd>
+					<dd><strong>Player count:</strong> <span id="player_count"></span></dd>
+					<dd><strong>Max players:</strong> <span id="player_max"></span></dd>
+				</dl>
+
+				<div id="player-list-div" class="col-6 offset-3 visually-hidden">
+					<ul id="player-list" class="list-group font-monospace mb-5 list-group-numbered" style="text-align: left;">
+						<strong>Players online</strong>
+						<span class="mb-2"></span>
+						<li class="list-group-item">Player 1</li>
+					</ul>
+				</div>
+				<div id="error-div" class="col-6 offset-3 visually-hidden">
+					<span id="error" class="font-monospace"></span>
+				</div>
+			</main>
+
+			<span class="mt-auto"> </span>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
